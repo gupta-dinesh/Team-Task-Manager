@@ -1,50 +1,71 @@
-# Team Task Manager
+# 📌 Team Task Manager (Full-Stack)
 
-Full-stack project management app with authentication, project membership, task assignment, status tracking, dashboards, and Admin/Member role-based access.
+A full-stack web application that helps teams manage projects, assign tasks, and track progress efficiently with role-based access control (Admin / Member).
 
-## Tech Stack
 
-- Frontend: React, Vite, Tailwind CSS
-- Backend: Express, Prisma
-- Database: PostgreSQL SQL database, suitable for Aiven/Railway via `DATABASE_URL`
-- Auth: JWT + bcrypt
+## 🚀 Features
 
-## Local Setup
+### 🔐 Authentication
+- User Signup & Login (JWT-based)
 
+### 👥 Project & Team Management
+- Create and manage projects  
+- Add/remove team members  
+
+### ✅ Task Management
+- Create, assign, and update tasks  
+- Track task status (Pending, In Progress, Completed)  
+
+### 📊 Dashboard
+- View all tasks  
+- Filter by status  
+- Highlight overdue tasks  
+
+### 🛡️ Role-Based Access
+- **Admin** → Full control (projects, users, tasks)  
+- **Member** → Limited access (assigned tasks)  
+
+
+## 🛠️ Tech Stack
+
+### Frontend
+- ⚛️ React  
+- 🎨 Tailwind CSS  
+
+### Backend
+- 🟢 Node.js  
+- 🚀 Express.js  
+- 🔗 Prisma  
+
+### Database
+- 🗄️ Neon DB SQL Database (Relational Database)  
+
+### Deployment
+- 🌐 Railway  
+
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
 ```bash
-npm install
-cp server/.env.example server/.env
-npm run prisma:migrate --workspace server
-npm run dev
+git clone https://github.com/gupta-dinesh/Team-Task-Manager.git
+
+cd Team-Task-Manager
+
 ```
+## 🖼️ Project Screenshots
+<img width="1905" height="867" alt="Screenshot 2026-05-01 100647" src="https://github.com/user-attachments/assets/fda38da1-2fa8-4f24-80b7-d307475a7ac4" />
 
-Client runs on `http://localhost:5173`.
-API runs on `http://localhost:5000`.
+---
 
-## Railway Deployment
+<img width="1310" height="834" alt="Screenshot 2026-05-01 103405" src="https://github.com/user-attachments/assets/9f035eff-f5a8-41d2-9387-51af6b56eecc" />
 
-1. Create a PostgreSQL database on Railway or Aiven.
-2. Add these Railway environment variables:
-
-```env
-DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DB?sslmode=require"
-JWT_SECRET="replace-with-a-long-random-secret"
-CLIENT_ORIGIN="https://your-frontend-domain"
-NODE_ENV="production"
-```
-
-3. Deploy from this repository. Railway will run:
-
+## 📂 Project Structure
 ```bash
-npm install
-npm run build
-npm start
+Team-Task-Manager/
+│
+├── client/          # React + Tailwind
+├── server/          # Express + Prisma + Database schema
+├── railway.json/    # deployment cofiguration
+└── README.md
 ```
-
-4. Run Prisma migrations once in Railway shell:
-
-```bash
-npm run prisma:migrate --workspace server
-```
-
-The Express server serves the built React app from `client/dist` in production.
